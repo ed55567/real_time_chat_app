@@ -10,6 +10,7 @@ function Chat({ username, roomname, socket }) {
 
   const dispatch = useDispatch();
   
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const dispatchProcess = (encrypt, msg, cipher) => {
     dispatch(process(encrypt, msg, cipher));
   };
@@ -28,7 +29,7 @@ function Chat({ username, roomname, socket }) {
       });
       setMessages([...temp]);
     });
-  }, [socket]);
+  }, [dispatchProcess, messages, socket]);
 
   const sendData = () => {
     if (text !== "") {
